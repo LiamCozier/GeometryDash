@@ -21,7 +21,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void render() {
-        g.process();
+        g.process(Gdx.graphics.getDeltaTime());
     }
 
     @Override
