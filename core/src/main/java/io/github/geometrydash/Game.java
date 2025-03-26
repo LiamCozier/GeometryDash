@@ -32,14 +32,14 @@ public class Game {
     }
 
     public void render(float dt) {
-        ScreenUtils.clear(0.15f, 0.15f, 0.2f, 1f);
+        lr.render_background(l.get_background_color());
         sr.begin(ShapeRenderer.ShapeType.Filled);
 
         // render level objects
         sr.setColor(Color.WHITE);
         lr.render_objects(l.get_objects(), sr, c);
 
-        lr.render_ground(ground_height, sr, c);
+        lr.render_ground(ground_height, l.get_ground_color(), sr, c);
         sr.end();
     }
 }

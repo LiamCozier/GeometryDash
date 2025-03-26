@@ -1,10 +1,14 @@
 package io.github.geometrydash.level;
 
+import com.badlogic.gdx.graphics.Color;
 import io.github.geometrydash.Vector2;
 import io.github.geometrydash.level.objects.*;
 
 
 public class Level {
+    private Color background_color = new Color(0.15f, 0.15f, 0.4f, 1f);
+    private Color ground_color = new Color(0.2f, 0.2f, 0.6f, 1f);
+
     private LevelObject[] object_array = new LevelObject[5];
 
     public Level() {
@@ -26,4 +30,19 @@ public class Level {
         return temp;
     }
 
+    public Color get_ground_color() {
+        return ground_color;
+    }
+
+    public void set_ground_color(Color ground_color) {
+        this.ground_color = ground_color;
+    }
+
+    public Color get_background_color() {
+        return background_color;
+    }
+
+    public void set_background_color(Color background_color) {
+        this.background_color = background_color;
+    }
 }
