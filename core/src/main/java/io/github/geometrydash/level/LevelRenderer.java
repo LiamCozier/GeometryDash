@@ -35,4 +35,30 @@ public class LevelRenderer {
         }
     }
 
+    public void render_hitboxes(LevelObject[] objects, ShapeRenderer sr, Camera c) {
+        for (LevelObject o : objects) {
+
+            Hitbox h = o.get_hitbox();
+            Vector2 corner1 = Vector2.mul(h.corner1, 64);
+            Vector2 corner2 = Vector2.mul(h.corner2, 64);
+
+            corner1 = c.global_to_screen_space(corner1);
+            corner2 = c.global_to_screen_space(corner2);
+
+            switch (o.get_hitbox().get_type()) {
+                case COLLIDE:
+                    sr.setColor(Color.LIME);
+                    break;
+                case HAZARD:
+                    sr.setColor(Color.RED);
+                    break;
+                default:
+                    sr.setColor(Color.BLUE);
+                    break;
+            }
+
+            sr.rect(corner1.x, corner1.y, corner2.x-corner1.x, corner2.y-corner1.y);
+        }
+    }
+
 }
